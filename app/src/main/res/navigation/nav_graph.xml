@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomePage">
+
+    <!-- Welcome Page -->
+    <fragment
+        android:id="@+id/welcomePage"
+        android:name="com.example.bookapp.WelcomePage"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome_page">
+        <action
+            android:id="@+id/action_welcomePage_to_createAccountPage"
+            app:destination="@id/createAccountPage" />
+    </fragment>
+
+    <!-- Create Account -->
+    <fragment
+        android:id="@+id/createAccountPage"
+        android:name="com.example.bookapp.CreateAccountPage"
+        android:label="Create Account"
+        tools:layout="@layout/fragment_create_account_page">
+        <action
+            android:id="@+id/action_createAccountPage_to_signinPage"
+            app:destination="@id/signinPage" />
+        <action
+            android:id="@+id/action_createAccountPage_to_homePage"
+            app:destination="@id/homePage"
+            app:popUpTo="@id/welcomePage"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Sign In -->
+    <fragment
+        android:id="@+id/signinPage"
+        android:name="com.example.bookapp.SigninPage"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_signin_page">
+        <action
+            android:id="@+id/action_signinPage_to_createAccountPage"
+            app:destination="@id/createAccountPage" />
+        <action
+            android:id="@+id/action_signinPage_to_homePage"
+            app:destination="@id/homePage"
+            app:popUpTo="@id/welcomePage"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Home Page -->
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.example.bookapp.HomePage"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_page">
+        <action
+            android:id="@+id/action_homePage_to_favoritesPage"
+            app:destination="@id/favoritesPage" />
+        <action
+            android:id="@+id/action_homePage_to_searchPage"
+            app:destination="@id/searchPage" />
+        <action
+            android:id="@+id/action_homePage_to_bookDetailsPage"
+            app:destination="@id/bookDetailsPage">
+            <argument
+                android:name="bookId"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_homePage_to_signinPage"
+            app:destination="@id/signinPage" />
+    </fragment>
+
+    <!-- Favorites -->
+    <fragment
+        android:id="@+id/favoritesPage"
+        android:name="com.example.bookapp.FavoritesPage"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites_page">
+        <action
+            android:id="@+id/action_favoritesPage_to_homePage"
+            app:destination="@id/homePage" />
+        <action
+            android:id="@+id/action_favoritesPage_to_bookDetailsPage"
+            app:destination="@id/bookDetailsPage">
+            <argument
+                android:name="bookId"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <!-- Search -->
+    <fragment
+        android:id="@+id/searchPage"
+        android:name="com.example.bookapp.SearchPage"
+        android:label="Search"
+        tools:layout="@layout/fragment_search_page">
+        <action
+            android:id="@+id/action_searchPage_to_bookDetailsPage"
+            app:destination="@id/bookDetailsPage">
+            <argument
+                android:name="bookId"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <!-- Book Details -->
+    <fragment
+        android:id="@+id/bookDetailsPage"
+        android:name="com.example.bookapp.BookDetailsPage"
+        android:label="Book Details"
+        tools:layout="@layout/fragment_book_details_page">
+        <argument
+            android:name="bookId"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Global Actions -->
+    <action
+        android:id="@+id/action_global_to_homePage"
+        app:destination="@id/homePage"
+        app:popUpTo="@id/homePage"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_global_to_favoritesPage"
+        app:destination="@id/favoritesPage"
+        app:popUpTo="@id/favoritesPage"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_global_to_searchPage"
+        app:destination="@id/searchPage"
+        app:popUpTo="@id/searchPage"
+        app:popUpToInclusive="false" />
+</navigation>

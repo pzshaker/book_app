@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.BookApp" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="Theme.BookApp" parent="Base.Theme.BookApp">
+        <item name="colorPrimary">@color/nav_bar_color</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#000000</item>
+
+        <item name="bottomNavigationStyle">@style/Widget.BookApp.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.BookApp.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@drawable/nav_bar_background</item>
+        <item name="itemIconTint">@color/nav_selector</item>
+        <item name="itemTextColor">@color/nav_selector</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemBackground">@drawable/nav_item_background
+        </item>
+    </style>
+
+    <style name="NoActiveIndicator">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:shape">rectangle</item>
+    </style>
+
+    <style name="RoundedImageStyle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+</resources>
